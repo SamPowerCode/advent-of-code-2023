@@ -21,5 +21,3 @@ if __name__ == '__main__':
     for sequence in initialization_sequence:
         result = hash_value(sequence)
         total = total + result
-
-    print(total)
