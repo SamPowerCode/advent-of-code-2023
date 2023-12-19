@@ -34,21 +34,38 @@ def populate_grow_data(file_content):
             # destination, source, total_range = data
 
 def calculate_locations(seeds):
-    # for seed in seeds:
-    
     for data in GROW_DATA:
-        section = {}
-        for info in data:
-            destination, source, total_range = info
-            for x in range(total_range):
-                 section[source + x] = destination + x
-        # seed_data = []
-        for index, x in enumerate(seeds):
-            if x in section.keys():
-                seeds[index] = section[x]
-        print('calculate_locations TEST')
-
+        updated_indexes = []
+        for line in data:
+            # pass
+            destination, source, total_range = line
+            
+            for index, seed in enumerate(seeds):
+                # pass
+                if seed >= source and seed < (source + (total_range)) and index not in updated_indexes:
+                    seeds[index] = seed - source + destination
+                    updated_indexes.append(index)
+                    # test = difference + destination
+                    print('calculate_locations TEST')
+    
     return seeds
+
+# def calculate_locations(seeds):
+#     # for seed in seeds:
+    
+#     for data in GROW_DATA:
+#         section = {}
+#         for info in data:
+#             destination, source, total_range = info
+#             for x in range(total_range):
+#                  section[source + x] = destination + x
+#         # seed_data = []
+#         for index, x in enumerate(seeds):
+#             if x in section.keys():
+#                 seeds[index] = section[x]
+#         print('calculate_locations TEST')
+
+#     return seeds
 
 
 
